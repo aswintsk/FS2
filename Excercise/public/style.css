@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    background-color: rgb(217, 224, 230);
+}
+ul{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+.card{
+    padding: 20px;
+    text-align: center;
+    color: whitesmoke;
+    background-color: rgb(127, 142, 143);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+.lowcard{
+    padding: 20px;
+    text-align: center;
+    color: rgb(247, 194, 194);
+    background-color: rgb(127, 142, 143);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}

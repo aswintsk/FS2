@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Movies</h1>
+
+    <ul>
+        <% movies.forEach(e => { %>
+            <li  <% if (e.rating>8) { %>
+             class="card"
+            <% }else { %>
+             class= "lowcard"
+            <% } %>>
+                <h1><%= e.title  %> </h1>
+                <p>Rating: <%= e.rating  %></p>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(212, 196, 175);
+}
+
+h2{
+    text-align: center;
+}
+div{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        background-color: rgb(241, 241, 217);
+        border-radius: 4px;
+}
+button{
+        align-self: flex-start;
+}
