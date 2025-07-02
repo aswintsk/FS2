@@ -13,5 +13,18 @@ html(lang="en")
         link(rel="stylesheet", href="style.css")
 
     body 
-        h1= msg + " "+ uname
+        h1= recipes.name
+        img(src="oml.jpg", alt="", srcset="")(style='width:250px')
+        h2 Ingredients
+        div 
+            ul 
+            each i in recipes.ingredients
+                li(style="color:green")=i 
+
+        h2 Steps 
+        div
+            ul 
+            each s in recipes.steps 
+                li=s
+            
         
