@@ -13,9 +13,9 @@
     <ul>
         <% movies.forEach(e => { %>
             <li  <% if (e.rating>8) { %>
-             class="card"
+             class=" card highcard"
             <% }else { %>
-             class= "lowcard"
+             class= "card"
             <% } %>>
                 <h1><%= e.title  %> </h1>
                 <p>Rating: <%= e.rating  %></p>
