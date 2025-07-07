@@ -71,7 +71,7 @@ app.post('/courses',(req,res)=>{
                         enrolled: [c1,c2,c3,c4,c5]
             }
         )
-        res.send("Registered in courses "+ JSON.stringify(enrollment))
+        res.send("Registered in courses "+ JSON.stringify(enrollment.find(e => e.roll == req.session.student.roll && e.enrolled)))
     }
     else{
         res.send("Please Login")
