@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #ecebeb;
+}
+
+header, footer {
+  background: rgb(73, 81, 114);
+  color: white;
+  padding: 1px;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.movie-card {
+  background: white;
+  border: 1px solid #e41919;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 4px 4px 3px rgb(160, 158, 158);
+}
+
+.movie-card.highlight {
+  background-color: #d4edda;
+  border-color: #28a745;
+}
