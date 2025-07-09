@@ -61,17 +61,33 @@ const enrollment = []
 
 app.post('/courses',(req,res)=>{
     if(req.session.student){
-        const {c1,c2,c3,c4,c5} = req.body
+
         if (enrollment.find(e => e.roll === req.session.student.roll)) {
             return res.status(400).json({ message: "Already registered" });
         }
+
+
+        const courseArr = Object.values(req.body)
+        // console.log(courseArr)
+        const UnqArr = new Set(courseArr)
+
+        if(UnqArr.size != courseArr.length){
+            return res.status(400).json({message:"Please Select Unique Courses"})
+        }
+        for(const i of UnqArr){
+            if(!courses.includes(i)){
+                return res.status(400).json({message:"No such course Found"})
+            }
+        }
+
         enrollment.push(
             {
                 roll:req.session.student.roll,
-                        enrolled: [c1,c2,c3,c4,c5]
+                enrolled: courseArr
             }
         )
-        res.send("Registered in courses "+ JSON.stringify(enrollment.find(e => e.roll == req.session.student.roll && e.enrolled)))
+        res.cookie("LastEnrolledCourse",{maxAge:180000})
+        res.send("Registered : "+ JSON.stringify(enrollment.find(e => e.roll == req.session.student.roll)))
     }
     else{
         res.send("Please Login")
@@ -79,6 +95,12 @@ app.post('/courses',(req,res)=>{
 })
 
 app.get('/courses',(req,res)=>{
-    res.send(courses)
+    if(req.session.student)
+    {
+        res.send(courses)
+    }
+    else{
+        res.send("Please Login to check available courses")
+    }
 })
 app.listen(port,()=>{console.log(`running: ${port}`)})
